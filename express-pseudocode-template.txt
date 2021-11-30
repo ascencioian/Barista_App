@@ -1,0 +1,84 @@
+Morning Challenge: A local coffee house is finally starting to take off ever since they introduced cold brew made from Kopi Luwak. They can’t handle their order volume and are starting to drop orders. Create an app that enables the cashier to enter the customer's name and their order. Then add that order to a queue that the baristas can see and give them the ability to mark an order complete. Completed orders should show which barista completed the order and have their own list. Bonus points if the app automatically says the customer's name out loud when an order is complete.
+
+// PSEUDO CODE
+// - wire framing —> 
+// how I want the app to look,
+there to be a ordering page
+there to be an admin page
+
+// what I want it to do / how users will interact
+can enter a name in the form
+can enter a order in the form - use a dropdown list in the form.
+
+they would need to see an banner saying order submitted. 
+
+
+needs authentication for the barista to sign in. (mayabe do the ID for the barista's) admin portal for barista
+on a separate view, the admin portal where barista can see the que. can click on a que item and that marks it as complete
+a seperate list for completed orders.
+
+// properties to send to post method
+get for the index
+form with place your order text box
+form with text input for your name
+submit button
+
+
+
+// - run server 
+// - create new collection in MongoDB --> change collection names in code (db.collection('<collectionName>'))
+// - check connection to my server 
+
+// - set up front end (inputs, where I want things to be positioned (affects childnodes))
+
+//routes
+// - GET —> how many pages in my app? how many collections? 
+//--> rename res.render('index.ejs', {<collectionName>: result})
+//--> rename arry inside of index.ejs to  <collectionName>[i].length, <collectionName>[i].<property>, etc.
+
+there are only two pages
+1) the index page
+2) the profile page
+
+there are going to be two collections:
+1) openOrders
+2) completedOrders
+
+// - POST —> form inside of index.ejs -> what inputs / request body information do I want to send to the database? 
+
+for the first collection (openOrders):
+i want to send:
+the name of the orderer:
+name: name
+the input of the orderer:
+input: inputValue
+
+for the second collection (completed orders):
+i want to include everything in the first collection.
+the name of the orderer:
+name: name
+the input of the orderer:
+input: inputValue
+
+and the name of the employee from the drop dropdown.
+
+
+
+// - PUT —> fetch call through main.js | what am I updating? what identifiers will I use to find that specific document?
+
+you are going to be updating // if order is completed or not, when post automatically false, when click order will change form true and things will happen.
+
+// --> send idenitifier information inside of fetch body. every property inside of JSON body request = req.body.<property> in server.js
+
+
+
+
+
+// - DELETE —> fetch call through main.js | what identifiers will I use to find that specific document?
+
+//do we need to make the application fully crud. 
+
+//if entering a wrong order may want to delete the order.
+
+
+one collection with all the orders. 

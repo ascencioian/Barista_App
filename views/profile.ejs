@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+    <title>21 Savage Fan Site</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-coffee"></span> Employee Page</h1>
+        
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Signed in Employee</h3>
+
+                <% if (user.local.email) { %>
+
+                    <p>
+                        <!-- <strong>id</strong>: <%= user._id %><br> -->
+                        <!-- <strong>email</strong>: <%= user.local.email %><br> -->
+                        <!-- <strong>password</strong>: <%= user.local.password %><br> -->
+                        <strong>Employee Name</strong>: <%= user.local.name %>
+                    </p>
+                    <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+                    <!-- <a href="/unlink/local" class="btn btn-danger">Terminate employee</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %> -->
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-6">
+          <h3><span class="fa fa-list"></span>Open Orders:<%= openOrders.length %></h3>
+          <ul class="messages">
+          <% for(var i=0; i < openOrders.length; i++) {%>
+           
+              <li class="message">
+                <span><%= openOrders[i].name %></span>
+                <span><%= openOrders[i].msg %></span>
+                <% if( i === 0){ %>
+                  <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                <% } %>
+                
+                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                
+                <!-- <strong>name</strong>: <%= user.local.name %> -->
+              </li>
+            
+            
+          <% } %>
+          </ul>
+
+          
+
+
+
+          <h3><span class="fa fa-list"></span>completed orders:<%= completedOrders.length %></h3>
+          <ul class="messages">
+          <% for(var i=0; i<completedOrders.length; i++) {%>
+           
+              
+              <li class="message">
+                <span><%= completedOrders[i].name %></span>
+                <span><%= completedOrders[i].msg %></span>
+                <span>order fulfilled by</span>
+                <span><%= completedOrders[i].baristaName %></span>
+                <!-- <span><%= completedOrders[i].msg %></span> -->
+                <!-- <span><i class="fa fa-check" aria-hidden="true"></i></span> -->
+                <!-- <span><i class="fa fa-trash" aria-hidden="true"></i></span> -->
+                <!-- <strong>name</strong>: <%= user.local.name %> -->
+              </li>
+           
+            
+          <% } %>
+          </ul>
+
+
+          <!-- <h2>First In, First Out</h2>
+        <% if (user.local.email) { %>
+          <form action="/fifo" method="POST">
+            <input type="text" value="<%= user.local.name %>" placeholder='employeeName' name="name">
+         
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %> -->
+
+</div>
+
+<script src="profile.js"></script>
+
+</body>
+</html>
