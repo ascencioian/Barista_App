@@ -4,7 +4,7 @@ The order then gets processed server side to be made available to an administrat
 
 
 **Link to project:**
-https://post-it-social-media-app.herokuapp.com/
+https://barista-pos-system.herokuapp.com/
 
 
 <img src="public/img/live_screenshot1.png">
